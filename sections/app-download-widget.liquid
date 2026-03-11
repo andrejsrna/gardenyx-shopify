@@ -70,6 +70,13 @@
                 class: 'app-download-widget__screen-image',
                 alt: section.settings.mockup_image.alt
             }}
+          {% elsif section.settings.mockup_image_url != blank %}
+            <img
+              src="{{ section.settings.mockup_image_url }}"
+              alt="{{ 'app_download_widget.heading' | t | escape }}"
+              class="app-download-widget__screen-image"
+              loading="lazy"
+            >
           {% else %}
             <div class="app-download-widget__screen-ui">
               <div class="app-download-widget__screen-top">
@@ -471,6 +478,11 @@
       "type": "image_picker",
       "id": "mockup_image",
       "label": "Phone mockup image"
+    },
+    {
+      "type": "url",
+      "id": "mockup_image_url",
+      "label": "External mockup image URL"
     },
     {
       "type": "color_scheme",

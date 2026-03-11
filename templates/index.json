@@ -96,6 +96,7 @@
         "app_store_url": "",
         "google_play_url": "",
         "mockup_image": "",
+        "mockup_image_url": "https://cdn.shopify.com/s/files/1/0969/4124/4803/files/WhatsApp_Image_2026-03-11_at_16.33.34.jpg?v=1773246897",
         "color_scheme": "scheme-1",
         "section_width": "page-width",
         "padding-block-start": 36,
@@ -345,7 +346,7 @@
   },
   "order": [
     "hero_MgjWhY",
-    "app_download_widget_X9w2mL",
-    "product_list_themegen"
+    "product_list_themegen",
+    "app_download_widget_X9w2mL"
   ]
 }
