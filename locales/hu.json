@@ -344,5 +344,20 @@
       "app_title": "Az alkalmazás adatvédelmi irányelvei",
       "footer_link": "Adatvédelem"
     }
+  },
+  "app_download_widget": {
+    "eyebrow": "GardenYX alkalmazás",
+    "heading": "Töltse le az alkalmazást, és tartsa kéznél kertje gondozását.",
+    "description": "Kapjon okos tápanyag-utánpótlási emlékeztetőket, adagolási útmutatót és személyre szabott növényápolási tippeket közvetlenül a telefonjára.",
+    "app_store_label": "Letöltés az App Store-ból",
+    "google_play_label": "Letöltés a Google Playről",
+    "mockup_kicker": "Okos gondozás",
+    "mockup_title": "Az Ön kertészeti irányítópultja",
+    "mockup_badge": "Béta",
+    "feature_title": "Tápanyag naptár",
+    "feature_text": "Időzített ajánlások az egészségesebb növekedésért és kiegyensúlyozottabb eredményekért.",
+    "stat_one": "Talaj",
+    "stat_two": "Adagolás",
+    "stat_three": "Fény"
   }
 }

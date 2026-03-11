@@ -90,6 +90,18 @@
         "padding-block-end": 40
       }
     },
+    "app_download_widget_X9w2mL": {
+      "type": "app-download-widget",
+      "settings": {
+        "app_store_url": "",
+        "google_play_url": "",
+        "mockup_image": "",
+        "color_scheme": "scheme-1",
+        "section_width": "page-width",
+        "padding-block-start": 36,
+        "padding-block-end": 20
+      }
+    },
     "product_list_themegen": {
       "type": "product-list",
       "blocks": {
@@ -333,6 +345,7 @@
   },
   "order": [
     "hero_MgjWhY",
+    "app_download_widget_X9w2mL",
     "product_list_themegen"
   ]
 }

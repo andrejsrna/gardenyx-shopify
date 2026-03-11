@@ -356,5 +356,20 @@
       "app_title": "App Privacy Policy",
       "footer_link": "Privacy Policy"
     }
+  },
+  "app_download_widget": {
+    "eyebrow": "GardenYX app",
+    "heading": "Download the app and keep your garden in rhythm.",
+    "description": "Get smart fertilizing reminders, dosage guidance, and tailored plant-care recommendations directly on your phone.",
+    "app_store_label": "Download on the App Store",
+    "google_play_label": "Get it on Google Play",
+    "mockup_kicker": "Smart care",
+    "mockup_title": "Your garden dashboard",
+    "mockup_badge": "Beta",
+    "feature_title": "Feeding calendar",
+    "feature_text": "Timely recommendations for healthier growth and steadier results.",
+    "stat_one": "Soil",
+    "stat_two": "Dosing",
+    "stat_three": "Light"
   }
 }

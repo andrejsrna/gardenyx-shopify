@@ -364,5 +364,20 @@
       "app_title": "Zásady ochrany osobných údajov aplikácie",
       "footer_link": "Ochrana osobných údajov"
     }
+  },
+  "app_download_widget": {
+    "eyebrow": "Aplikácia GardenYX",
+    "heading": "Stiahnite si aplikáciu a majte starostlivosť o záhradu stále po ruke.",
+    "description": "Získajte inteligentné pripomienky hnojenia, odporúčané dávkovanie a personalizované tipy pre vaše rastliny priamo v mobile.",
+    "app_store_label": "Stiahnuť na App Store",
+    "google_play_label": "Stiahnuť na Google Play",
+    "mockup_kicker": "Smart starostlivosť",
+    "mockup_title": "Váš záhradný dashboard",
+    "mockup_badge": "Beta",
+    "feature_title": "Kalendár výživy",
+    "feature_text": "Načasované odporúčania pre zdravší rast a stabilnejšie výsledky.",
+    "stat_one": "Pôda",
+    "stat_two": "Dávkovanie",
+    "stat_three": "Svetlo"
   }
 }
