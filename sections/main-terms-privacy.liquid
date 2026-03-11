@@ -18,10 +18,6 @@
     assign show_fallback_notice = false
   endif
 
-  assign shop_terms_snippet = 'terms-privacy-doc--' | append: content_locale | append: '--shop--terms'
-  assign shop_privacy_snippet = 'terms-privacy-doc--' | append: content_locale | append: '--shop--privacy'
-  assign app_terms_snippet = 'terms-privacy-doc--' | append: content_locale | append: '--app--terms'
-  assign app_privacy_snippet = 'terms-privacy-doc--' | append: content_locale | append: '--app--privacy'
 %}
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
@@ -78,13 +74,25 @@
         <article class="terms-privacy__document">
           <p class="terms-privacy__document-label">{{ 'terms_privacy.shop_terms_title' | t }}</p>
           <div class="terms-privacy__document-body rte">
-            {% render shop_terms_snippet %}
+            {% if content_locale == 'hu' %}
+              {% render 'terms_privacy_hu_shop_terms' %}
+            {% elsif content_locale == 'sk' %}
+              {% render 'terms_privacy_sk_shop_terms' %}
+            {% else %}
+              {% render 'terms_privacy_en_shop_terms' %}
+            {% endif %}
           </div>
         </article>
         <article class="terms-privacy__document">
           <p class="terms-privacy__document-label">{{ 'terms_privacy.shop_privacy_title' | t }}</p>
           <div class="terms-privacy__document-body rte">
-            {% render shop_privacy_snippet %}
+            {% if content_locale == 'hu' %}
+              {% render 'terms_privacy_hu_shop_privacy' %}
+            {% elsif content_locale == 'sk' %}
+              {% render 'terms_privacy_sk_shop_privacy' %}
+            {% else %}
+              {% render 'terms_privacy_en_shop_privacy' %}
+            {% endif %}
           </div>
         </article>
       </div>
@@ -102,13 +110,25 @@
         <article class="terms-privacy__document">
           <p class="terms-privacy__document-label">{{ 'terms_privacy.app_terms_title' | t }}</p>
           <div class="terms-privacy__document-body rte">
-            {% render app_terms_snippet %}
+            {% if content_locale == 'hu' %}
+              {% render 'terms_privacy_hu_app_terms' %}
+            {% elsif content_locale == 'sk' %}
+              {% render 'terms_privacy_sk_app_terms' %}
+            {% else %}
+              {% render 'terms_privacy_en_app_terms' %}
+            {% endif %}
           </div>
         </article>
         <article class="terms-privacy__document">
           <p class="terms-privacy__document-label">{{ 'terms_privacy.app_privacy_title' | t }}</p>
           <div class="terms-privacy__document-body rte">
-            {% render app_privacy_snippet %}
+            {% if content_locale == 'hu' %}
+              {% render 'terms_privacy_hu_app_privacy' %}
+            {% elsif content_locale == 'sk' %}
+              {% render 'terms_privacy_sk_app_privacy' %}
+            {% else %}
+              {% render 'terms_privacy_en_app_privacy' %}
+            {% endif %}
           </div>
         </article>
       </div>
