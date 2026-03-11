@@ -1,3 +1,7 @@
+{% liquid
+  assign fallback_mockup_url = 'https://cdn.shopify.com/s/files/1/0969/4124/4803/files/WhatsApp_Image_2026-03-11_at_16.33.34.jpg?v=1773246897'
+%}
+
 {% capture apple_icon %}
   <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path
@@ -73,6 +77,13 @@
           {% elsif section.settings.mockup_image_url != blank %}
             <img
               src="{{ section.settings.mockup_image_url }}"
+              alt="{{ 'app_download_widget.heading' | t | escape }}"
+              class="app-download-widget__screen-image"
+              loading="lazy"
+            >
+          {% elsif fallback_mockup_url != blank %}
+            <img
+              src="{{ fallback_mockup_url }}"
               alt="{{ 'app_download_widget.heading' | t | escape }}"
               class="app-download-widget__screen-image"
               loading="lazy"
