@@ -58,74 +58,25 @@
       </div>
     </div>
 
-    <div class="app-download-widget__mockup-wrap">
-      <div class="app-download-widget__halo app-download-widget__halo--one"></div>
-      <div class="app-download-widget__halo app-download-widget__halo--two"></div>
-      <div class="app-download-widget__phone">
-        <div class="app-download-widget__phone-notch"></div>
-        <div class="app-download-widget__screen">
-          {% if section.settings.mockup_image != blank %}
-            {{
-              section.settings.mockup_image
-              | image_url: width: 1200
-              | image_tag:
-                widths: '360, 480, 720, 960, 1200',
-                sizes: '(min-width: 990px) 360px, 72vw',
-                class: 'app-download-widget__screen-image',
-                alt: section.settings.mockup_image.alt
-            }}
-          {% elsif section.settings.mockup_image_url != blank %}
-            <img
-              src="{{ section.settings.mockup_image_url }}"
-              alt="{{ 'app_download_widget.heading' | t | escape }}"
-              class="app-download-widget__screen-image"
-              loading="lazy"
-            >
-          {% elsif fallback_mockup_url != blank %}
-            <img
-              src="{{ fallback_mockup_url }}"
-              alt="{{ 'app_download_widget.heading' | t | escape }}"
-              class="app-download-widget__screen-image"
-              loading="lazy"
-            >
-          {% else %}
-            <div class="app-download-widget__screen-ui">
-              <div class="app-download-widget__screen-top">
-                <div>
-                  <p class="app-download-widget__screen-kicker">{{ 'app_download_widget.mockup_kicker' | t }}</p>
-                  <p class="app-download-widget__screen-title">{{ 'app_download_widget.mockup_title' | t }}</p>
-                </div>
-                <span class="app-download-widget__screen-badge">{{ 'app_download_widget.mockup_badge' | t }}</span>
-              </div>
-              <div class="app-download-widget__screen-card app-download-widget__screen-card--feature">
-                <div class="app-download-widget__sprout"></div>
-                <div class="app-download-widget__screen-copy">
-                  <p>{{ 'app_download_widget.feature_title' | t }}</p>
-                  <span>{{ 'app_download_widget.feature_text' | t }}</span>
-                </div>
-              </div>
-              <div class="app-download-widget__screen-card app-download-widget__screen-card--stats">
-                <div class="app-download-widget__stat">
-                  <span></span>
-                  <small>{{ 'app_download_widget.stat_one' | t }}</small>
-                </div>
-                <div class="app-download-widget__stat">
-                  <span></span>
-                  <small>{{ 'app_download_widget.stat_two' | t }}</small>
-                </div>
-                <div class="app-download-widget__stat">
-                  <span></span>
-                  <small>{{ 'app_download_widget.stat_three' | t }}</small>
-                </div>
-              </div>
-              <div class="app-download-widget__screen-card app-download-widget__screen-card--footer">
-                <div class="app-download-widget__pill"></div>
-                <div class="app-download-widget__pill app-download-widget__pill--short"></div>
-              </div>
-            </div>
-          {% endif %}
-        </div>
-      </div>
+    <div class="app-download-widget__image-wrap">
+      {% if section.settings.mockup_image != blank %}
+        {{
+          section.settings.mockup_image
+          | image_url: width: 1400
+          | image_tag:
+            widths: '480, 720, 960, 1200, 1400',
+            sizes: '(min-width: 990px) 42vw, 100vw',
+            class: 'app-download-widget__image',
+            alt: section.settings.mockup_image.alt
+        }}
+      {% else %}
+        <img
+          src="{{ section.settings.mockup_image_url | default: fallback_mockup_url }}"
+          alt="{{ 'app_download_widget.heading' | t | escape }}"
+          class="app-download-widget__image"
+          loading="lazy"
+        >
+      {% endif %}
     </div>
   </div>
 </section>
@@ -215,255 +166,24 @@
     height: 100%;
   }
 
-  .app-download-widget__mockup-wrap {
+  .app-download-widget__image-wrap {
     position: relative;
-    display: grid;
-    place-items: center;
-    min-height: 28rem;
-  }
-
-  .app-download-widget__halo {
-    position: absolute;
-    border-radius: 999px;
-    filter: blur(4px);
-    opacity: 0.85;
-  }
-
-  .app-download-widget__halo--one {
-    width: 12rem;
-    height: 12rem;
-    top: 8%;
-    right: 10%;
-    background: radial-gradient(circle, rgb(120 177 70 / 0.42), transparent 70%);
-  }
-
-  .app-download-widget__halo--two {
-    width: 15rem;
-    height: 15rem;
-    bottom: 0;
-    left: 0;
-    background: radial-gradient(circle, rgb(242 176 57 / 0.3), transparent 72%);
-  }
-
-  .app-download-widget__phone {
-    position: relative;
-    width: min(100%, 22rem);
-    aspect-ratio: 0.53;
-    padding: 0.7rem;
-    border-radius: 2.6rem;
-    background:
-      linear-gradient(160deg, rgb(24 29 25), rgb(9 11 10)),
-      linear-gradient(160deg, rgb(255 255 255 / 0.35), transparent);
-    box-shadow:
-      0 28px 80px rgb(6 14 8 / 0.3),
-      inset 0 0 0 1px rgb(255 255 255 / 0.12);
-  }
-
-  .app-download-widget__phone::before {
-    content: '';
-    position: absolute;
-    inset: 0.35rem;
-    border-radius: 2.25rem;
-    border: 1px solid rgb(255 255 255 / 0.08);
-    pointer-events: none;
-  }
-
-  .app-download-widget__phone-notch {
-    position: absolute;
-    top: 0.95rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 36%;
-    height: 1.45rem;
-    border-radius: 999px;
-    background: rgb(7 9 8);
-    z-index: 2;
-  }
-
-  .app-download-widget__screen {
-    position: relative;
-    width: 100%;
-    height: 100%;
+    display: block;
+    border-radius: 1.6rem;
     overflow: hidden;
-    border-radius: 2rem;
-    background:
-      radial-gradient(circle at top left, rgb(126 181 71 / 0.34), transparent 28%),
-      linear-gradient(180deg, #122116 0%, #0d1710 36%, #f3eedf 36%, #faf6ec 100%);
+    box-shadow: 0 24px 70px rgb(18 28 13 / 0.16);
   }
 
-  .app-download-widget__screen-image {
+  .app-download-widget__image {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
     display: block;
   }
 
-  .app-download-widget__screen-ui {
-    height: 100%;
-    display: grid;
-    grid-template-rows: auto auto auto 1fr;
-    gap: 0.85rem;
-    padding: 3.5rem 1rem 1rem;
-  }
-
-  .app-download-widget__screen-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 0.75rem;
-  }
-
-  .app-download-widget__screen-kicker,
-  .app-download-widget__screen-title,
-  .app-download-widget__screen-copy p,
-  .app-download-widget__screen-copy span {
-    margin: 0;
-  }
-
-  .app-download-widget__screen-kicker {
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-    color: rgb(255 255 255 / 0.72);
-  }
-
-  .app-download-widget__screen-title {
-    margin-top: 0.35rem;
-    color: #fffdf8;
-    font-size: 1.2rem;
-    font-weight: 700;
-    line-height: 1.05;
-  }
-
-  .app-download-widget__screen-badge {
-    padding: 0.45rem 0.7rem;
-    border-radius: 999px;
-    background: rgb(255 255 255 / 0.12);
-    color: #fffdf8;
-    font-size: 0.7rem;
-    backdrop-filter: blur(12px);
-  }
-
-  .app-download-widget__screen-card {
-    border-radius: 1.35rem;
-    background: rgb(255 255 255 / 0.72);
-    box-shadow: 0 10px 30px rgb(24 35 18 / 0.08);
-  }
-
-  .app-download-widget__screen-card--feature {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0.8rem;
-    align-items: center;
-    padding: 0.95rem;
-  }
-
-  .app-download-widget__sprout {
-    width: 3rem;
-    height: 3rem;
-    border-radius: 1rem;
-    background:
-      radial-gradient(circle at 30% 30%, rgb(255 255 255 / 0.9), transparent 30%),
-      linear-gradient(160deg, #86b45a, #4e7d38);
-    position: relative;
-  }
-
-  .app-download-widget__sprout::before,
-  .app-download-widget__sprout::after {
-    content: '';
-    position: absolute;
-    background: #eef8db;
-    border-radius: 100% 0 100% 0;
-  }
-
-  .app-download-widget__sprout::before {
-    width: 0.8rem;
-    height: 1.2rem;
-    top: 0.7rem;
-    left: 1rem;
-    transform: rotate(-26deg);
-  }
-
-  .app-download-widget__sprout::after {
-    width: 0.7rem;
-    height: 1rem;
-    top: 0.95rem;
-    left: 1.45rem;
-    transform: rotate(24deg);
-  }
-
-  .app-download-widget__screen-copy p {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: #17301a;
-  }
-
-  .app-download-widget__screen-copy span {
-    display: block;
-    margin-top: 0.18rem;
-    font-size: 0.74rem;
-    color: rgb(23 48 26 / 0.72);
-    line-height: 1.45;
-  }
-
-  .app-download-widget__screen-card--stats {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.55rem;
-    padding: 0.8rem;
-  }
-
-  .app-download-widget__stat {
-    display: grid;
-    gap: 0.5rem;
-    align-items: end;
-  }
-
-  .app-download-widget__stat span {
-    display: block;
-    min-height: 2.3rem;
-    border-radius: 999px 999px 0.85rem 0.85rem;
-    background: linear-gradient(180deg, #7bb14a, #dbefbf);
-  }
-
-  .app-download-widget__stat:nth-child(2) span {
-    min-height: 3.1rem;
-  }
-
-  .app-download-widget__stat:nth-child(3) span {
-    min-height: 1.7rem;
-    background: linear-gradient(180deg, #f2b039, #f7dfac);
-  }
-
-  .app-download-widget__stat small {
-    font-size: 0.68rem;
-    color: rgb(23 48 26 / 0.72);
-  }
-
-  .app-download-widget__screen-card--footer {
-    display: grid;
-    gap: 0.65rem;
-    padding: 0.9rem;
-    align-content: start;
-  }
-
-  .app-download-widget__pill {
-    height: 0.85rem;
-    border-radius: 999px;
-    background: linear-gradient(90deg, rgb(74 122 56 / 0.14), rgb(74 122 56 / 0.04));
-  }
-
-  .app-download-widget__pill--short {
-    width: 58%;
-  }
-
   @media screen and (max-width: 749px) {
-    .app-download-widget__phone {
-      width: min(100%, 18rem);
-    }
-
-    .app-download-widget__mockup-wrap {
-      min-height: 24rem;
+    .app-download-widget__image-wrap {
+      border-radius: 1.2rem;
     }
   }
 {% endstylesheet %}
