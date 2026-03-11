@@ -44,11 +44,6 @@
   >
     {% content_for 'blocks' %}
   </div>
-  <div class="footer-legal-link">
-    <a href="{{ routes.root_url | append: 'pages/terms-privacy' }}" class="footer-legal-link__anchor">
-      {{ 'terms_privacy.footer_link' | t }}
-    </a>
-  </div>
 </div>
 
 {% stylesheet %}
@@ -82,16 +77,6 @@
     .footer-content--isolated-grid-item-desktop > :last-child {
       grid-column: 1 / -1;
     }
-  }
-
-  .footer-legal-link {
-    margin-top: 1.5rem;
-  }
-
-  .footer-legal-link__anchor {
-    color: inherit;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.2em;
   }
 {% endstylesheet %}
 

@@ -215,8 +215,8 @@
                       "type": "button",
                       "name": "t:names.button",
                       "settings": {
-                        "label": "Return policy",
-                        "link": "",
+                        "label": "Terms of Use",
+                        "link": "/pages/terms",
                         "open_in_new_tab": false,
                         "style_class": "link",
                         "width": "fit-content",
@@ -230,8 +230,38 @@
                       "type": "button",
                       "name": "t:names.button",
                       "settings": {
+                        "label": "Privacy Policy",
+                        "link": "/pages/privacy-policy",
+                        "open_in_new_tab": false,
+                        "style_class": "link",
+                        "width": "fit-content",
+                        "custom_width": 100,
+                        "width_mobile": "fit-content",
+                        "custom_width_mobile": 100
+                      },
+                      "blocks": {}
+                    },
+                    "button_rA5QzN": {
+                      "type": "button",
+                      "name": "t:names.button",
+                      "settings": {
                         "label": "Help & Questions",
                         "link": "",
+                        "open_in_new_tab": false,
+                        "style_class": "link",
+                        "width": "fit-content",
+                        "custom_width": 100,
+                        "width_mobile": "fit-content",
+                        "custom_width_mobile": 100
+                      },
+                      "blocks": {}
+                    },
+                    "button_x6pLQa": {
+                      "type": "button",
+                      "name": "t:names.button",
+                      "settings": {
+                        "label": "Download",
+                        "link": "/pages/download",
                         "open_in_new_tab": false,
                         "style_class": "link",
                         "width": "fit-content",
@@ -268,6 +298,8 @@
                     "button_Ma4JLz",
                     "button_e4pFdh",
                     "button_nEhLUK",
+                    "button_rA5QzN",
+                    "button_x6pLQa",
                     "menu_4kGYad"
                   ]
                 }
