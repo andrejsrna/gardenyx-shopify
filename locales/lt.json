@@ -333,5 +333,28 @@
     "app_privacy_title": "App Privacy Policy",
     "footer_link": "Terms & Privacy",
     "fallback_notice": "This legal content is currently available in English."
+  },
+  "legal_pages": {
+    "common": {
+      "eyebrow": "Legal information",
+      "tablist_label": "Legal document categories",
+      "shop_tab": "E-shop",
+      "app_tab": "App",
+      "fallback_notice": "This legal content is currently available in English."
+    },
+    "terms": {
+      "heading": "Terms & Conditions",
+      "description": "Switch between the e-shop and app terms.",
+      "shop_title": "E-shop Terms of Use",
+      "app_title": "App Terms of Use",
+      "footer_link": "Terms & Conditions"
+    },
+    "privacy": {
+      "heading": "Privacy Policy",
+      "description": "Switch between the e-shop and app privacy policies.",
+      "shop_title": "E-shop Privacy Policy",
+      "app_title": "App Privacy Policy",
+      "footer_link": "Privacy Policy"
+    }
   }
 }

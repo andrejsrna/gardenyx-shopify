@@ -1,0 +1,348 @@
+{% liquid
+  assign document_kind = section.settings.document_kind | default: 'terms'
+  assign active_locale = request.locale.iso_code | default: localization.language.iso_code | downcase
+  assign content_locale = 'en'
+
+  if active_locale contains 'hu'
+    assign content_locale = 'hu'
+  elsif active_locale contains 'sk' or active_locale contains 'cs'
+    assign content_locale = 'sk'
+  endif
+
+  assign show_fallback_notice = true
+
+  if content_locale == 'en' and active_locale contains 'en'
+    assign show_fallback_notice = false
+  elsif content_locale == 'hu' and active_locale contains 'hu'
+    assign show_fallback_notice = false
+  elsif content_locale == 'sk' and active_locale contains 'sk'
+    assign show_fallback_notice = false
+  endif
+
+  assign heading_key = 'legal_pages.' | append: document_kind | append: '.heading'
+  assign description_key = 'legal_pages.' | append: document_kind | append: '.description'
+  assign shop_title_key = 'legal_pages.' | append: document_kind | append: '.shop_title'
+  assign app_title_key = 'legal_pages.' | append: document_kind | append: '.app_title'
+%}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div class="section page-width-content color-{{ section.settings.color_scheme }}">
+  <div
+    id="LegalDocument-{{ section.id }}"
+    class="legal-document spacing-style"
+    style="{% render 'spacing-style', settings: section.settings %}"
+    data-default-tab="shop"
+  >
+    <div class="legal-document__intro">
+      <p class="legal-document__eyebrow">{{ 'legal_pages.common.eyebrow' | t }}</p>
+      <h1 class="legal-document__heading">{{ heading_key | t }}</h1>
+      <p class="legal-document__description">{{ description_key | t }}</p>
+    </div>
+
+    <div class="legal-document__tabs" role="tablist" aria-label="{{ 'legal_pages.common.tablist_label' | t }}">
+      <button
+        id="LegalDocumentTab-shop-{{ section.id }}"
+        class="legal-document__tab is-active"
+        type="button"
+        role="tab"
+        aria-selected="true"
+        aria-controls="LegalDocumentPanel-shop-{{ section.id }}"
+        data-legal-tab="shop"
+      >
+        {{ 'legal_pages.common.shop_tab' | t }}
+      </button>
+      <button
+        id="LegalDocumentTab-app-{{ section.id }}"
+        class="legal-document__tab"
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="LegalDocumentPanel-app-{{ section.id }}"
+        data-legal-tab="app"
+      >
+        {{ 'legal_pages.common.app_tab' | t }}
+      </button>
+    </div>
+
+    {% if show_fallback_notice %}
+      <p class="legal-document__notice">{{ 'legal_pages.common.fallback_notice' | t }}</p>
+    {% endif %}
+
+    <section
+      id="LegalDocumentPanel-shop-{{ section.id }}"
+      class="legal-document__panel"
+      role="tabpanel"
+      aria-labelledby="LegalDocumentTab-shop-{{ section.id }}"
+      data-legal-panel="shop"
+    >
+      <article class="legal-document__article">
+        <p class="legal-document__label">{{ shop_title_key | t }}</p>
+        <div class="legal-document__body rte">
+          {% if document_kind == 'privacy' %}
+            {% if content_locale == 'hu' %}
+              {% render 'terms_privacy_hu_shop_privacy' %}
+            {% elsif content_locale == 'sk' %}
+              {% render 'terms_privacy_sk_shop_privacy' %}
+            {% else %}
+              {% render 'terms_privacy_en_shop_privacy' %}
+            {% endif %}
+          {% else %}
+            {% if content_locale == 'hu' %}
+              {% render 'terms_privacy_hu_shop_terms' %}
+            {% elsif content_locale == 'sk' %}
+              {% render 'terms_privacy_sk_shop_terms' %}
+            {% else %}
+              {% render 'terms_privacy_en_shop_terms' %}
+            {% endif %}
+          {% endif %}
+        </div>
+      </article>
+    </section>
+
+    <section
+      id="LegalDocumentPanel-app-{{ section.id }}"
+      class="legal-document__panel"
+      role="tabpanel"
+      aria-labelledby="LegalDocumentTab-app-{{ section.id }}"
+      data-legal-panel="app"
+      hidden
+    >
+      <article class="legal-document__article">
+        <p class="legal-document__label">{{ app_title_key | t }}</p>
+        <div class="legal-document__body rte">
+          {% if document_kind == 'privacy' %}
+            {% if content_locale == 'hu' %}
+              {% render 'terms_privacy_hu_app_privacy' %}
+            {% elsif content_locale == 'sk' %}
+              {% render 'terms_privacy_sk_app_privacy' %}
+            {% else %}
+              {% render 'terms_privacy_en_app_privacy' %}
+            {% endif %}
+          {% else %}
+            {% if content_locale == 'hu' %}
+              {% render 'terms_privacy_hu_app_terms' %}
+            {% elsif content_locale == 'sk' %}
+              {% render 'terms_privacy_sk_app_terms' %}
+            {% else %}
+              {% render 'terms_privacy_en_app_terms' %}
+            {% endif %}
+          {% endif %}
+        </div>
+      </article>
+    </section>
+  </div>
+</div>
+
+<script>
+  (() => {
+    const root = document.getElementById('LegalDocument-{{ section.id }}');
+    if (!root) return;
+
+    const buttons = Array.from(root.querySelectorAll('[data-legal-tab]'));
+    const panels = Array.from(root.querySelectorAll('[data-legal-panel]'));
+
+    const activate = (tab) => {
+      buttons.forEach((button) => {
+        const isActive = button.dataset.legalTab === tab;
+        button.classList.toggle('is-active', isActive);
+        button.setAttribute('aria-selected', String(isActive));
+        button.tabIndex = isActive ? 0 : -1;
+      });
+
+      panels.forEach((panel) => {
+        panel.hidden = panel.dataset.legalPanel !== tab;
+      });
+    };
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => activate(button.dataset.legalTab));
+    });
+
+    activate(root.dataset.defaultTab || 'shop');
+  })();
+</script>
+
+{% stylesheet %}
+  .legal-document {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .legal-document__intro {
+    display: grid;
+    gap: 0.75rem;
+    max-width: 52rem;
+  }
+
+  .legal-document__eyebrow {
+    margin: 0;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-foreground-muted);
+  }
+
+  .legal-document__heading,
+  .legal-document__description,
+  .legal-document__label {
+    margin: 0;
+  }
+
+  .legal-document__description,
+  .legal-document__notice {
+    color: var(--color-foreground-muted);
+  }
+
+  .legal-document__notice {
+    margin: 0;
+  }
+
+  .legal-document__tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .legal-document__tab {
+    cursor: pointer;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--color-foreground);
+    padding: 0.8rem 1.1rem;
+    font: inherit;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .legal-document__tab.is-active {
+    background: var(--color-foreground);
+    color: var(--color-background);
+    border-color: var(--color-foreground);
+  }
+
+  .legal-document__panel[hidden] {
+    display: none !important;
+  }
+
+  .legal-document__article {
+    display: grid;
+    gap: 1rem;
+    padding: clamp(1.25rem, 2vw, 1.75rem);
+    border: 1px solid var(--color-border);
+    border-radius: 1.5rem;
+  }
+
+  .legal-document__label {
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-foreground-muted);
+  }
+
+  .legal-document__body {
+    font-size: 0.97rem;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+  }
+
+  .legal-document__body > :first-child {
+    margin-top: 0;
+  }
+
+  .legal-document__body > :last-child {
+    margin-bottom: 0;
+  }
+
+  .legal-document__body p,
+  .legal-document__body ul,
+  .legal-document__body ol {
+    margin: 0 0 0.85rem;
+  }
+
+  .legal-document__body ul,
+  .legal-document__body ol {
+    padding-left: 1.2rem;
+  }
+
+  .legal-document__body li + li {
+    margin-top: 0.45rem;
+  }
+
+  .legal-document__body > p:nth-child(-n + 4) {
+    text-align: center;
+  }
+
+  .legal-document__body > p:nth-child(1) {
+    color: var(--color-foreground-muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .legal-document__body > p:nth-child(2) {
+    font-size: 1.2rem;
+  }
+
+  .legal-document__body > p:nth-child(3),
+  .legal-document__body > p:nth-child(4) {
+    color: var(--color-foreground-muted);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Legal document",
+  "tag": "section",
+  "class": "section-wrapper",
+  "settings": [
+    {
+      "type": "select",
+      "id": "document_kind",
+      "label": "Document kind",
+      "default": "terms",
+      "options": [
+        {
+          "value": "terms",
+          "label": "Terms"
+        },
+        {
+          "value": "privacy",
+          "label": "Privacy"
+        }
+      ]
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 56
+    }
+  ]
+}
+{% endschema %}

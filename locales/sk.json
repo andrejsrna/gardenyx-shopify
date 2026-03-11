@@ -341,5 +341,28 @@
     "app_privacy_title": "Zásady ochrany osobných údajov aplikácie",
     "footer_link": "Obchodné podmienky a súkromie",
     "fallback_notice": "Právny obsah je momentálne dostupný v angličtine alebo slovenčine podľa typu dokumentu."
+  },
+  "legal_pages": {
+    "common": {
+      "eyebrow": "Právne informácie",
+      "tablist_label": "Kategórie právnych dokumentov",
+      "shop_tab": "E-shop",
+      "app_tab": "Aplikácia",
+      "fallback_notice": "Právny obsah je momentálne dostupný v angličtine alebo slovenčine podľa typu dokumentu."
+    },
+    "terms": {
+      "heading": "Obchodné podmienky",
+      "description": "Prepínajte medzi obchodnými podmienkami pre e-shop a aplikáciu.",
+      "shop_title": "Obchodné podmienky e-shopu",
+      "app_title": "Podmienky používania aplikácie",
+      "footer_link": "Obchodné podmienky"
+    },
+    "privacy": {
+      "heading": "Zásady ochrany osobných údajov",
+      "description": "Prepínajte medzi zásadami ochrany osobných údajov pre e-shop a aplikáciu.",
+      "shop_title": "Zásady ochrany osobných údajov e-shopu",
+      "app_title": "Zásady ochrany osobných údajov aplikácie",
+      "footer_link": "Ochrana osobných údajov"
+    }
   }
 }

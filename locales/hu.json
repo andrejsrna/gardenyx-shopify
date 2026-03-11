@@ -321,5 +321,28 @@
     "app_privacy_title": "Az alkalmazás adatvédelmi irányelvei",
     "footer_link": "Felhasználási feltételek és adatvédelem",
     "fallback_notice": "Ez a jogi tartalom jelenleg angolul érhető el."
+  },
+  "legal_pages": {
+    "common": {
+      "eyebrow": "Jogi információk",
+      "tablist_label": "Jogi dokumentumkategóriák",
+      "shop_tab": "E-shop",
+      "app_tab": "Alkalmazás",
+      "fallback_notice": "Ez a jogi tartalom jelenleg angolul érhető el."
+    },
+    "terms": {
+      "heading": "Felhasználási feltételek",
+      "description": "Váltson az e-shop és az alkalmazás felhasználási feltételei között.",
+      "shop_title": "Az e-shop felhasználási feltételei",
+      "app_title": "Az alkalmazás felhasználási feltételei",
+      "footer_link": "Felhasználási feltételek"
+    },
+    "privacy": {
+      "heading": "Adatvédelmi irányelvek",
+      "description": "Váltson az e-shop és az alkalmazás adatvédelmi irányelvei között.",
+      "shop_title": "Az e-shop adatvédelmi irányelvei",
+      "app_title": "Az alkalmazás adatvédelmi irányelvei",
+      "footer_link": "Adatvédelem"
+    }
   }
 }
