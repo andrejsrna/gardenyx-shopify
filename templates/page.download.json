@@ -1,0 +1,29 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "app-download-widget",
+      "settings": {
+        "app_store_url": "",
+        "google_play_url": "",
+        "mockup_image": "",
+        "mockup_image_url": "https://cdn.shopify.com/s/files/1/0969/4124/4803/files/WhatsApp_Image_2026-03-11_at_16.33.34.jpg?v=1773246897",
+        "color_scheme": "scheme-1",
+        "section_width": "page-width",
+        "padding-block-start": 36,
+        "padding-block-end": 36
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
