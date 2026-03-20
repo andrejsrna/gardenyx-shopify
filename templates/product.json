@@ -246,6 +246,16 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "product_upsell_w3Ej4V": {
+              "type": "product-upsell",
+              "settings": {
+                "heading": "",
+                "product": "",
+                "padding-block-start": 12,
+                "padding-block-end": 0
+              },
+              "blocks": {}
             }
           },
           "block_order": [
@@ -253,7 +263,8 @@
             "divider_VJhene",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
-            "text_aEtTtq"
+            "text_aEtTtq",
+            "product_upsell_w3Ej4V"
           ]
         }
       },

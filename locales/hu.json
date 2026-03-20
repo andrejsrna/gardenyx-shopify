@@ -359,5 +359,9 @@
     "stat_one": "Talaj",
     "stat_two": "Adagolás",
     "stat_three": "Fény"
+  },
+  "product_upsell": {
+    "heading": "Ehhez a termékhez ezt ajánljuk",
+    "empty": "Válasszon ki egy upsell terméket, vagy állítsa be a custom.upsell_product metafieldet."
   }
 }

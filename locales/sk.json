@@ -379,5 +379,9 @@
     "stat_one": "Pôda",
     "stat_two": "Dávkovanie",
     "stat_three": "Svetlo"
+  },
+  "product_upsell": {
+    "heading": "K tomuto produktu vám odporúčame",
+    "empty": "Vyberte produkt do upsellu alebo nastavte produktový metafield custom.upsell_product."
   }
 }

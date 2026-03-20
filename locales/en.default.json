@@ -359,5 +359,9 @@
     "stat_one": "Soil",
     "stat_two": "Dosing",
     "stat_three": "Light"
+  },
+  "product_upsell": {
+    "heading": "We recommend pairing this product with",
+    "empty": "Select a fallback product or set the product metafield custom.upsell_product."
   }
 }
