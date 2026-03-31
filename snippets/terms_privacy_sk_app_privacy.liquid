@@ -1,4 +1,4 @@
-{% comment %} Source: GardenYX_App_Zasady_Ochrany_Udajov_SK.docx {% endcomment %}
+{% comment %} Source: GardenYX_App_Zasady_Ochrany_Udajov_SK_Updated.docx {% endcomment %}
 <p><b>GARDENYX</b></p>
 <p><b>Zásady ochrany osobných údajov</b></p>
 <p><i>Mobilná aplikácia</i></p>
@@ -74,7 +74,7 @@
 <ul>
   <li><b>Správa účtu: </b>na vytvorenie, údržbu a zabezpečenie vášho účtu</li>
   <li><b>Starostlivosť o rastliny: </b>na sledovanie rastlín, pripomienky starostlivosti, AI identifikáciu, diagnózu zdravia a personalizované odporúčania</li>
-  <li><b>AI funkcie: </b>na prevádzku AI chatbota (RastoAI), identifikácie rastlín (Plant.id API), obohacovanie informácií (GPT integrácia) a diagnózy zdravia</li>
+  <li><b>AI funkcie: </b>na prevádzku AI chatbota (RastoAI), identifikácie rastlín (Plant.id API), obohacovanie informácií o rastlinách a diagnózu zdravia. Tieto AI funkcie sú čiastočne zabezpečené službou Google Gemini (Google LLC), ktorá spracováva fotografie rastlín a textové vstupy používateľov prostredníctvom nášho backendu</li>
   <li><b>Notifikácie: </b>na zasielanie push notifikácií o zalévaní, hnojení a presádzaní</li>
   <li><b>Analytika a zlepšovanie: </b>na pochopenie používania Aplikácie a zlepšenie služieb (Firebase Analytics)</li>
   <li><b>Hlásenie chýb: </b>na identifikáciu a opravu technických problémov (Firebase Crashlytics)</li>
@@ -111,9 +111,8 @@
 </ul>
 <p>5.4 AI služby</p>
 <ul>
-  <li>RastoAI (vlastný backend) – AI chatbot pre starostlivosť o rastliny</li>
-  <li>GPT integrácia (cez backend) – obohacovanie informácií o rastlinách</li>
-  <li>Diagnóza API (backend) – diagnóza zdravia rastlín</li>
+  <li>Google Gemini API (Google LLC) – identifikácia rastlín, diagnóza zdravia rastlín, odporúčania starostlivosti a obohacovanie informácií o rastlinách. Pri používaní týchto funkcií sa vaše fotografie rastlín a sprievodné textové vstupy (napr. názvy rastlín, symptómy alebo otázky o starostlivosti) odosielajú do rozhrania Google Gemini API prostredníctvom nášho backendu na analýzu. V rámci týchto požiadaviek sa neodosielajú žiadne osobné identifikačné údaje (ako vaše meno, e-mail alebo údaje o účte). Všetky údaje sú prenášané bezpečne cez HTTPS. Zásady ochrany osobných údajov spoločnosti Google: https://policies.google.com/privacy</li>
+  <li>RastoAI (vlastný backend) – AI chatbot pre starostlivosť o rastliny. Správy používateľov sú spracované prostredníctvom nášho backendu, ktorý môže odosielať požiadavky do služby Google Gemini na generovanie odpovedí</li>
 </ul>
 <p>Vaše osobné údaje nepredávame žiadnej tretej strane.</p>
 <p>6. Medzinárodné prenosy údajov</p>
@@ -175,7 +174,7 @@
 </ul>
 <p>Všetky oprávnenia sú voliteľné a môžete ich kedykoľvek spravovať v nastaveních zariadenia.</p>
 <p>14. Automatizované rozhodovanie a AI</p>
-<p>Aplikácia používa umelú inteligenciu na identifikáciu rastlín, diagnózu zdravia a odporúčania starostlivosti. Tieto funkcie spracovávajú obrázky a údaje o rastlinách na poskytovanie automatizovaných návrhov. AI funkcie majú poradenský charakter a nemajú právne ani podobne významné účinky na vás.</p>
+<p>Aplikácia používa umelú inteligenciu na identifikáciu rastlín, diagnózu zdravia a odporúčania starostlivosti. Tieto funkcie spracovávajú obrázky a údaje o rastlinách na poskytovanie automatizovaných návrhov. Tieto AI funkcie sú zabezpečené službami tretích strán vrátane Google Gemini (Google LLC), ktoré spracovávajú vaše fotografie rastlín a textové vstupy, ako je opísané v časti 5.4. AI funkcie majú poradenský charakter a nemajú právne ani podobne významné účinky na vás.</p>
 <p>15. Zmeny týchto zásad</p>
 <p>Tieto Zásady môžeme priebežne aktualizovať. O podstatných zmenách vás budeme informovať zverejnením aktualizovaných zásad v Aplikácii alebo iným vhodným spôsobom. „Dátum účinnosti“ na začiatku tohto dokumentu uvádza, kedy nadobudla účinnosť najnovšia verzia.</p>
 <p>16. Kontaktujte nás</p>

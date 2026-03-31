@@ -1,4 +1,4 @@
-{% comment %} Source: GardenYX_App_Adatvedelmi_Iranyelvek_HU.docx {% endcomment %}
+{% comment %} Source: GardenYX_App_Adatvedelmi_Iranyelvek_HU_Updated.docx {% endcomment %}
 <p><b>GARDENYX</b></p>
 <p><b>Adatvédelmi irányelvek</b></p>
 <p><i>Mobilalkalmazás</i></p>
@@ -74,7 +74,7 @@
 <ul>
   <li>Fiókkezelés: fiókja létrehozása, karbantartása és biztonsága</li>
   <li>Növényápolási szolgáltatások: növénykövetés, ápolási emlékeztetők, AI alapú növényazonosítás, egészségi diagnózis és személyre szabott ajánlások</li>
-  <li>AI funkciók: az AI chatbot (RastoAI), növényazonosítás (Plant.id API), növényinformáció-gazdagítás (GPT integráció) és egészségi diagnózis működtetése</li>
+  <li>AI funkciók: az AI chatbot (RastoAI), növényazonosítás (Plant.id API), növényinformáció-gazdagítás és egészségi diagnózis működtetése. Ezeket az AI funkciókat részben a Google Gemini (Google LLC) biztosítja, amely a felhasználók növényfotóit és szöveges bemeneteit a backendünkön keresztül dolgozza fel</li>
   <li>Értesítések: push értesítések küldése öntözési, trágyázási és átültetési emlékeztetőkről</li>
   <li>Elemzés és fejlesztés: az Alkalmazás használatának megértése és szolgáltatásaink fejlesztése (Firebase Analytics)</li>
   <li>Hibajelentés: technikai problémák azonosítása és javítása (Firebase Crashlytics)</li>
@@ -110,9 +110,8 @@
 </ul>
 <p><b>5.4 AI szolgáltatások</b></p>
 <ul>
-  <li>RastoAI (saját backend) – AI növényápolási chatbot</li>
-  <li>GPT integráció (backenden keresztül) – növényinformáció-gazdagítás</li>
-  <li>Diagnózis API (backend) – növény-egészségi diagnózis</li>
+  <li>Google Gemini API (Google LLC) – növényazonosítás, növény-egészségi diagnózis, ápolási ajánlások és növényinformáció-gazdagítás. Ezen funkciók használatakor a növényfotói és a kísérő szöveges bemenetek (pl. növénynevek, tünetek vagy ápolási kérdések) a backendünkön keresztül a Google Gemini API-nak kerülnek elküldésre elemzés céljából. Ezekbe a kérésekbe nem kerülnek bele személyazonosító adatok (például neve, e-mail-címe vagy fiókadatai). Minden adat biztonságosan, HTTPS-en keresztül kerül továbbításra. A Google adatvédelmi irányelvei: https://policies.google.com/privacy</li>
+  <li>RastoAI (saját backend) – AI növényápolási chatbot. A felhasználói üzeneteket a backendünk dolgozza fel, amely a válaszok generálásához továbbíthatja a kéréseket a Google Gemininek</li>
 </ul>
 <p>Személyes adatait nem értékesítjük harmadik félnek.</p>
 <p><b>6. Nemzetközi adattovábbítás</b></p>
@@ -171,7 +170,7 @@
 </ul>
 <p>Minden engedély opcionális, és bármikor kezelheti az eszköz beállításaiban.</p>
 <p><b>14. Automatizált döntéshozatal és AI</b></p>
-<p>Az Alkalmazás mesterséges intelligenciát használ növényazonosításra, egészségi diagnózisra és ápolási ajánlásokra. Ezek a funkciók tanácsadó jellegűek, és nem eredményeznek jogi vagy hasonlóan jelentős hatást Önre nézve.</p>
+<p>Az Alkalmazás mesterséges intelligenciát használ növényazonosításra, egészségi diagnózisra és ápolási ajánlásokra. Ezeket az AI funkciókat harmadik fél szolgáltatásai biztosítják, beleértve a Google Gemini-t (Google LLC), amely az 5.4. szakaszban leírtak szerint dolgozza fel az Ön növényfotóit és szöveges bemeneteit. Ezek a funkciók tanácsadó jellegűek, és nem eredményeznek jogi vagy hasonlóan jelentős hatást Önre nézve.</p>
 <p><b>15. Az Irányelvek módosítása</b></p>
 <p>Jelen Irányelveket időről időre frissíthetjük. A lényeges változásokról az Alkalmazásban történő közzététellel vagy más megfelelő módon értesítjük. A dokumentum elején lévő „Hatályba lépés” dátum jelzi a legfrissebb verzió érvényességét.</p>
 <p><b>16. Kapcsolat</b></p>
